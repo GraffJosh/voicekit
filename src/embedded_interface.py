@@ -1,7 +1,7 @@
 import socket
 import time
 
-TCP_IP = socket.gethostbyname(socket.gethostname())
+TCP_IP = '192.168.1.113'# socket.gethostbyname(socket.gethostname())
 TCP_Port = 1234
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
