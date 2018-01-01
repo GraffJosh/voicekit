@@ -2,7 +2,7 @@
 
 from phue import Bridge
 
-b = Bridge('ip_of_your_bridge')
+b = Bridge('192.168.1.134')
 
 # If the app is not registered and the button is not pressed, press the button and call connect() (this only needs to be run a single time)
 b.connect()
@@ -11,8 +11,12 @@ b.connect()
 b.get_api()
 
 # Prints if light 1 is on or not
-b.get_light(1, 'on')
+#b.get_light(1, 'on')
+lights = b.lights
 
+# Print light names
+for l in lights:
+    print(l.name)
 # Set brightness of lamp 1 to max
 #b.set_light(1, 'bri', 254)
 
