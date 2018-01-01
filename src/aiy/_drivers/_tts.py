@@ -33,7 +33,7 @@ def create_say(player):
     return functools.partial(say, player, lang=lang)
 
 
-def say(player, words, lang='en-US', volume=60, pitch=130):
+def say(player, words, lang='en-GB', volume=60, pitch=130):
     """Say the given words with TTS.
 
     Args:

@@ -26,6 +26,7 @@ def main():
     recognizer.expect_phrase('turn on the light')
     recognizer.expect_phrase('blink')
     recognizer.expect_phrase('repeat after me')
+
     recognizer.expect_hotword('jarvis')
 
     button = aiy.voicehat.get_button()
@@ -33,12 +34,12 @@ def main():
     aiy.audio.get_recorder().start()
 
     while True:
-        print('Press the button and speak')
-        recognizer.wait_for_hotword()
+        #print('Press the button and speak')
+        #recognizer.wait_for_hotword()
         print('Listening...')
         text = recognizer.recognize()
         if not text:
-            print('Sorry, I did not hear you.')
+            #print('Sorry, I did not hear you.')
         else:
             print('You said "', text, '"')
             if 'turn on the light' in text:
@@ -50,7 +51,7 @@ def main():
             elif 'repeat after me' in text:
                 print('repeating text')
                 repeattext = text.replace('repeat after me',' ',1)
-                aiy.audio.say(repeattext)
+                aiy.audio.say(repeattext,'en-GB',60,100)
             elif 'goodbye' in text:
                 break
 
