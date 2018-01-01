@@ -1,4 +1,4 @@
-PI ?= raspberrypi.local
+PI ?= voicekit1
 
 SHORTCUTS = $(wildcard shortcuts/*.desktop)
 
@@ -11,4 +11,4 @@ deploy_scripts:
 deploy_shortcuts:
 	scp $(SHORTCUTS) pi@$(PI):~/Desktop
 
-deploy: deploy_scripts deploy_shortcuts
+deploy: deploy_scripts #deploy_shortcuts

@@ -34,7 +34,7 @@ class _CloudSpeechRecognizer(object):
     def __init__(self, credentials_file):
         self._request = aiy._apis._speech.CloudSpeechRequest(credentials_file)
         self._recorder = aiy.audio.get_recorder()
-        self._hotwords = ["Jarvis"]
+        self._hotwords = []
 
     def recognize(self):
         """Recognizes the user's speech and transcript it into text.
