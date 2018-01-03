@@ -1,3 +1,8 @@
 google-assistant-grpc==0.0.2
 grpc-google-cloud-speech-v1beta1==0.14.0
 google-auth-oauthlib==0.1.0
+
+sudo apt-get install swig3.0 python-pyaudio python3-pyaudio sox
+pip install pyaudio
+pip install --upgrade google-cloud-speech
+sudo apt-get install libatlas-base-dev

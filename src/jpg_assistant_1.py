@@ -1,6 +1,7 @@
 import aiy.audio
 import aiy.cloudspeech
 import aiy.voicehat
+import snowboydecoder
 from google_speech import Speech
 from phue import Bridge
 
@@ -17,7 +18,10 @@ def main():
 	button = aiy.voicehat.get_button()
 	led = aiy.voicehat.get_led()
 	aiy.audio.get_recorder().start()
-	jarvis_thread()
+
+	detector = snowboydecoder.HotwordDetector("resources/snowboy.umdl", sensitivity=0.5, audio_gain=1)
+	detector.start(detected_callback)
+	#jarvis_thread()
 
 
 def jarvis_thread():
@@ -29,6 +33,7 @@ def jarvis_thread():
 	while True:
 		#print('Press the button and speak')
 		#recognizer.wait_for_hotword()
+
 		spoken_text = recognizer.recognize()
 		if not spoken_text:
 			print('Sorry, I did not hear you.')
@@ -45,6 +50,9 @@ def jarvis_thread():
 				aiy.audio.say(repeatspoken_text,'en-GB',60,100)
 			elif 'goodbye' in spoken_text:
 				break
+
+def detected_callback():
+	print ('hotword_detected')
 
 if __name__ == '__main__':
 	main()
